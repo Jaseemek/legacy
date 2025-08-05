@@ -1,0 +1,121 @@
+/* Body & Background (handled by home-bg in Home.jsx) */
+.home-bg {
+  min-height: 100vh;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  background: #101a20;
+  color: #EAFDFD;
+  overflow-x: hidden;
+}
+
+.home-bg::before {
+  content: "";
+  position: fixed;
+  top: -30vh;
+  left: -20vw;
+  width: 140vw;
+  height: 140vh;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 105% 60%, #30FFF4cc 0%, #101a20 55%, transparent 100%);
+  opacity: 0.65;
+  filter: blur(26px);
+  animation: neonAura 9s ease-in-out infinite alternate;
+}
+
+@keyframes neonAura {
+  0% { opacity: 0.55; filter: blur(18px);}
+  100% { opacity: 0.8; filter: blur(34px);}
+}
+
+/* Navigation Styles */
+.top-nav {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 2.2rem 0 1.3rem 0;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+}
+.nav-link {
+  color: #30FFF4;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.19rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.nav-link:hover,
+.nav-link.active {
+  background: #101a20;
+  color: #fff;
+  box-shadow: 0 0 14px #30FFF4, 0 0 18px #1de9ff60;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  margin-top: 2.5rem;
+}
+.ninja-hero-wrapper {
+  margin-bottom: 1.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ninja-img {
+  width: 100px;
+  height: 100px;
+  filter: drop-shadow(0 0 22px #30FFF4);
+  transition: transform 0.45s, filter 0.3s;
+  animation: floatGlow 2.7s ease-in-out infinite alternate;
+  cursor: pointer;
+}
+.ninja-img:hover {
+  transform: scale(1.10) rotate(-2deg);
+  filter: drop-shadow(0 0 38px #30FFF4aa) drop-shadow(0 0 65px #1de9ffcc);
+}
+
+@keyframes floatGlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); filter: drop-shadow(0 0 44px #30FFF4cc);}
+}
+
+/* Community name */
+.community-name {
+  font-size: 2.9rem;
+  font-weight: 800;
+  color: #30FFF4;
+  letter-spacing: -1.5px;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 12px #30FFF4, 0 0 24px #1de9ff87;
+}
+
+/* Motto text with typewriter effect */
+.motto-typewriter {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #EAFDFD;
+  max-width: 90vw;
+  margin: 0 auto;
+  letter-spacing: 0.2px;
+}
+.blink-cursor {
+  font-weight: 500;
+  color: #EAFDFD;
+  animation: blink 1s steps(2, start) infinite;
+  margin-left: 2px;
+}
+@keyframes blink {
+  to { opacity: 0; }
+}
